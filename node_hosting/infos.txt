@@ -1,0 +1,21 @@
+https://www.loginradius.com/blog/engineering/guest-post/nodejs-authentication-guide/
+
+Dans le cadre de mes expérimentations j'ai conçu 2 serveurs différents utilisant
+mongoDB.
+L'approche actuelle est de concevoir une application fullstackée entièrement en 
+javascript. 
+
+Le premier est le node_testServeur qui se base uniquement sur node sans framework.
+Il est en v0.0.1.
+
+Le second se base sur express.js. 
+{npm i express}
+Express va me servir de squelette pour mon application. à partir du server qu'il 
+nous permet de concevoir, je vais établir les différentes routes de notre app.
+
+Afin de render mon serveur j'ai utilisé le template ejs qui nous offre une vue
+front de notre serveur. 
+{npm i ejs}
+
+La prochaine étape est d'ajouter une interface de connection/deconnection et 
+gestion de profil 

@@ -1,11 +1,19 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const PORT = 8080;
 
-app.get('/', (req,res)=>{
-    res.send('hello world');
+//j'utilise ejs pour render mon application
+app.set("view engine","ejs");
+//routes
+app.get("/",(req,res)=> res.render("pages/index"))
+app.get
+
+app.listen(PORT,()=>{
+    console.log ('Le serveur est lancé')
 })
 
-app.listen(port,()=>{
-    console.log ('Hello world')
+//en cas d'erreur au lancement
+process.on("unhandledRejection",err => {
+    console.log(`Une erreur est survenue: ${err.message}`)
+    server.close(()=> process.exit(1))
 })

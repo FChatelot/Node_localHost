@@ -1,3 +1,5 @@
+//Ce server n'est pas à utiliser car il n'est pas encore développé.
+
 const http = require ('node:http');
 const port = 3500;
 
