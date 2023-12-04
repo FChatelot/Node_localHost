@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
 </head>
 <body>
     <header>
         <!--https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr-->
-        <h1>hello guys</h1>
-        <nav></nav>
+        <%-include('../partials/header') -%>
     </header>
     <!---->
     <main>
         <section>
-
+            <h1>Site testing</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cupiditate libero nobis. Error aspernatur et eligendi culpa velit ea reiciendis non libero aperiam eveniet consequuntur provident illum voluptates, tempore quidem?</p>
         </section>
     </main>
     <!---->
     <footer>
-
+        <%-include('../partials/footer') -%>
     </footer>
 </body>
 </html>

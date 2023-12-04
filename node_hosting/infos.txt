@@ -17,5 +17,10 @@ Afin de render mon serveur j'ai utilisé le template ejs qui nous offre une vue
 front de notre serveur. 
 {npm i ejs}
 
+J'utilise nodemon pour maintenir un server qui se relance automatiquement.
+{npm i nodemon}
+
+
+Connecter un fichier css requiert de définir un dossier statique via l'app.
 La prochaine étape est d'ajouter une interface de connection/deconnection et 
 gestion de profil 
