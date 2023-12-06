@@ -25,6 +25,19 @@ Connecter un fichier css requiert de définir un dossier statique via l'app.
 La prochaine étape est d'ajouter une interface de connection/deconnection et 
 gestion de profil 
 
+==============================================================================================================================================================================
+PROCHAINES IMPLANTATIONS ET IDEES:
+
+Pour notre partie authentication, j'ai du mettre en place une base de donnée utilisant mongoDB (à venir).
+utilisation de passport afin d'avoir une session valide qui permet de garder les informations de connection et gérer jetons et validations.
+
+A venir encore: implanter correctement la partie user (voir figma), connecter la base de donnée à l'app du projet express_test. Crypter les mdp. Tester le système d'enregistrement/ connetion de notre site ainsi que la déconnection. 
+Autre élément à implanter: un formulaire permettant de changer ses identifiants, compléter son profil et le supprimer. 
+Autre élément à implanter: l'authentication via google/facebook.
+
+Faire le Css/partie front end.
+
+Sécuriser nos formulaires en ajoutant un captcha ?
 
 
 searchspace
