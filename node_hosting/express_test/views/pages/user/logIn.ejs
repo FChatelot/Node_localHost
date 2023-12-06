@@ -11,8 +11,10 @@
         <!--https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr-->
         <%-include('../../partials/header') -%>
     </header>
-    <main>
         <main>
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
             <form action="/logIn" method="POST">
                 <div class="form-group">
                     <label for="EmailInput">E-mail</label>
@@ -28,7 +30,6 @@
     
             <!--https://stackabuse.com/handling-authentication-in-express-js/-->
         </main>
-    </main>
     <footer>
         <%-include('../../partials/footer') -%>
     </footer>

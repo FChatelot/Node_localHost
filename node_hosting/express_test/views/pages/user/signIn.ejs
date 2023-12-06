@@ -12,6 +12,11 @@
         <%-include('../../partials/header') -%>
     </header>
     <main>
+        
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
         <form action="/signIn" method="POST">
             <div class="form-group">
                 <label for="EmailInput">E-mail</label>

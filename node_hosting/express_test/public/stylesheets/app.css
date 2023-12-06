@@ -17,13 +17,11 @@ header{
 }
 
 nav {
-
     height: 59px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 35px;
-    max-width: 100%;
 }
 
 nav ul {
@@ -60,4 +58,10 @@ a{
     font-size: 16px;
     background-color: #D3D3D3;
     border: none;
+}
+
+
+/**********main***********/
+main{
+    margin: 20px;
 }
