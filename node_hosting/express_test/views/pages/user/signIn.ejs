@@ -4,26 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
 </head>
 <body>
+    <header>
+        <!--https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application-fr-->
+        <%-include('../../partials/header') -%>
+    </header>
+    <main>
+        <form action="/signIn" method="POST">
+            <div class="form-group">
+                <label for="EmailInput">E-mail</label>
+                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="confirmPasswordInput"> Confirm Password</label>
+                <input name="confirmPassword" type="password" class="form-control" id="confirmPasswordInput" placeholder="Confirm your Password">
+            </div>
 
-    <form action="/signIn" method="POST">
-        <div class="form-group">
-            <label for="EmailInput">E-mail</label>
-            <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="passwordInput">Password</label>
-            <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="confirmPasswordInput"> Confirm Password</label>
-            <input name="confirmPassword" type="password" class="form-control" id="confirmPasswordInput" placeholder="Confirm your Password">
-        </div>
+            <button type="submit">Submit</button>
+        </form>
 
-        <button type="submit"></button>
-    </form>
-
-    <!--https://stackabuse.com/handling-authentication-in-express-js/-->
+        <!--https://stackabuse.com/handling-authentication-in-express-js/-->
+    </main>
+    <footer>
+        <%-include('../../partials/footer') -%>
+    </footer>
 </body>
+
 </html>

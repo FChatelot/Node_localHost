@@ -24,3 +24,74 @@ J'utilise nodemon pour maintenir un server qui se relance automatiquement.
 Connecter un fichier css requiert de définir un dossier statique via l'app.
 La prochaine étape est d'ajouter une interface de connection/deconnection et 
 gestion de profil 
+
+
+
+searchspace
+https://www.pierre-giraud.com/html-css-apprendre-coder-cours/creation-menu-deroulant/
+
+
+
+// const cookieParser = require('cookie-parser');//placer un cookie de session en l'absence de maitrise d'un token json
+// const bodyParser = require('body-parser');
+// const cryptopwd = require('crypto');
+
+// const fs = require('node:fs');
+
+app.post('/signIn', (req, res)=>{
+    const {email, password, confirmPassword} = req.body;
+
+    //on vérifie les mots de passe pour voir si les 2 sont strictement égaux
+    if (password === confirmPassword){
+        //on vérifie si l'adresse mail est déja existante.
+        if(users.find(user => user.email === email)){
+            res.render('pages/user/signIn',{
+                
+                //add error code
+                // message:"Error!User already registered",
+                // messageClass:'alert-danger'
+            });
+            return
+        };
+        const hashedPassword = getHashedPassword(password);
+
+        //On stock l'utilisateur dans la DB ici
+        users.push({
+            email,
+            password: hashedPassword
+        });
+
+        res.render('login',{
+            //add error code
+            // message:'Registration Complete. Please login ton continue.',
+            // messageClass:'alert-success'   
+        });
+    } else{
+        res.render("pages/user/signIn",{
+            //add error code
+            // message:'Password does not match.',
+            // messageClass:'alert-danger'
+        });
+    };
+});
+
+// const users = [
+//     {
+//         email: 'testingmail@email.com',
+//         password:'XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg='
+//     }
+// ];
+
+// const getHashedPassword= (password)=>{
+//     const sha256= cryptopwd.createHash('sha256');
+//     const hash = sha256.update(password).digest('base64');
+//     return hash;
+// }
+
+
+
+// //support de l'interpréteur du corps json de la réponse http
+// app.use(bodyParser.urlencoded({extended:true}));
+
+// //utilisé pour parser les cookies depuis la requete http.
+// app.use(cookieParser());
