@@ -16,7 +16,10 @@ module.exports = function(passport){
         });
     });
 
-    //système de validation de notre connection.
+    //système de validation de notre connection. 
+    //Le code ci-dessous n'a pas été testé et les if sont sans accolades ce qui me perturbe vu que ce n'est pas une bonne pratique
+    //Cependant j'ai lui qu'il était possible de le faire dans le cadre ou le if ne donne qu'une seule instruction.
+    //Ce sera modifié après test et bon fonctionnement de la base de données. 
     passport.use("local-login",new LocalStrategy({
         usernameField:"email",
         passwordField:"password",
@@ -35,11 +38,12 @@ module.exports = function(passport){
                 if(!user)
                     return done (null,false, req.flash("logInMessage", "No user found."));
 
-                if(!user.validPassword(password))
+                if(!user.validPassword(password)){
                     return done (null, false, req.flash ("logInMessage", "Wrong password."));
 
-                else
+                }else{
                     return done (null,user);
+                };
             });
         });
     }));
@@ -57,7 +61,7 @@ module.exports = function(passport){
         process.nextTick(function(){
             if(!req.user){
                 User.findOne({"local.email": email}, function(err,user){
-                    if (err)
+                    if (err)            
                         return done(err);
                     if(user){
                         return done(null,false, req.flash("signInMessage", "That email is already taken."));
