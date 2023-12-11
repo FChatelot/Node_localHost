@@ -1,8 +1,6 @@
 //Tentative de créer une page User qui fonctionne avec l'app
-module.exports = function(app){
-    console.log('hello');
 
-    /* var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
 // define the schema for our user model
@@ -27,7 +25,6 @@ userSchema.methods.validPassword = function(password) {
 };
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);*/
-}
+module.exports = mongoose.model('User', userSchema);
 
 

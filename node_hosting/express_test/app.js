@@ -2,10 +2,18 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 const path = require('path');
-const routes = require('./routes/routes') (app,passport);
 const process= require('node:process');
 const flash = require('connect-flash')//utilisé pour store des messages. Le message apparaitra dans la page de redirection.
-const passport= require('passport')
+const passport= require('passport');
+const mongoose= require('mongoose');
+const mongodb= require('./configs/mongoDb/mongodb.js');
+
+main().catch(err=> console.log(err));
+
+async function main(){
+    await mongoose.connect(mongodb.url);
+}
+
 
 //authentification needs
 const cookieParser = require ('cookie-parser');
@@ -41,7 +49,7 @@ app.use(passport.initialize());
 app.use(passport.session());//permet de garder une session logged in ouverte.
 app.use(flash());
 
-
+require('./routes/routes') (app)(passport);
 //notre server local
 app.listen(PORT,()=>{
     console.log ('Le serveur est lancé');

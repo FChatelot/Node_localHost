@@ -1,7 +1,5 @@
 
-module.exports = function(app,passport){
-
-
+module.exports = function(app, passport){
 //Route vers la Home page
 app.get("/",(req,res)=> res.render("pages/index"));
 
@@ -61,10 +59,8 @@ app.post("/connect/local", passport.authenticate("local-signup",{
     failureFlash:true
 }));
 
-}
-
 //----- Déconnection.
-app.get("/unlink/local", isLoggedIn, function(req,res){
+app.get("/unlink/local",isLoggedIn, function(req,res){
     const user = req.user;
     user.local.email = undefined;
     user.local.password = undefined;
@@ -76,7 +72,12 @@ app.get("/unlink/local", isLoggedIn, function(req,res){
 
 //Fonction pour s'assurer que l'utilisateur est parfaitement log in.
 function isLoggedIn(req,res,next){
-    if(req.isAuthenticated())
-    return next();
+    if(req.isAuthenticated()){
+        return next();
+    }
     res.redirect('/');
 };
+
+};
+
+
